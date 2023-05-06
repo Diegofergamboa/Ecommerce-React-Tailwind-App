@@ -24,8 +24,8 @@ const AppRouters = () => {
 function App() {
   return (
     <BrowserRouter>
-        <AppRouters/>
         <Navbar />
+        <AppRouters />
     </BrowserRouter>
   )
 }
