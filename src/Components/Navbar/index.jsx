@@ -4,12 +4,12 @@ const Navbar = () => {
     const activeStyle = [
         'underline' ,
         'underline-offset-2',
-        'text-red-950',
+        'text-blue-950 ',
     ];
 
     return (
-        <nav className='bg-transparent sticky flex justify-between p-1 w-full'>
-            <ul className='flex justify-between p-1'>
+        <nav className='bg-transparent sticky flex justify-between p-1 w-full z-10 px-8 py-5 font-light top-0'>
+            <ul className='flex justify-between p-1 gap-3'>
                 <li>
                     <NavLink
                         to='/'
