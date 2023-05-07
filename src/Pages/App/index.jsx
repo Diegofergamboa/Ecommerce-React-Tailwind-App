@@ -8,7 +8,6 @@ import SignIn from '../SignIn/index'
 import './App.css'
 import Navbar from '../../Components/Navbar'
 
-
 const AppRouters = () => {
   let routers = useRoutes([
     {path: '/', element: < Home /> },

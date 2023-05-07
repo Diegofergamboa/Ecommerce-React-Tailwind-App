@@ -4,6 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  optimizeDeps: {
+    include: [
+      '@fortawesome/free-solid-svg-icons',
+      '@fortawesome/react-fontawesome'
+    ]
+  },
   theme: {
     extend: {},
   },
