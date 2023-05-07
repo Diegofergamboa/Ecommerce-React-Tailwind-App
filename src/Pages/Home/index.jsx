@@ -1,8 +1,11 @@
 import Layout from '../../Components/Layout'
+<<<<<<< HEAD
 import Card from '../../Components/Card/index'
 import { useQuery } from '@apollo/client';
 import GET_PRODUCTS from '../../Graphql/queries/getProducts.js';
 import client from '../../Graphql/client';
+=======
+>>>>>>> parent of 243be4e (Card component created)
 
 const Home = () => {
     const { loading, error, data } = useQuery(GET_PRODUCTS, { client });
@@ -12,6 +15,7 @@ const Home = () => {
 
     return (
         <Layout>
+<<<<<<< HEAD
             {data.products.map((product) => {
                 return (
                     <Card
@@ -23,6 +27,9 @@ const Home = () => {
                     />
                 )
             })}
+=======
+            Hi World!
+>>>>>>> parent of 243be4e (Card component created)
         </Layout>
     )
 }
