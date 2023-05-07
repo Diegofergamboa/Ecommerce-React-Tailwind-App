@@ -1,9 +1,10 @@
 import Layout from '../../Components/Layout'
+import Card from '../../Components/Card/index'
 
 const Home = () => {
     return (
         <Layout>
-            Hi World!
+            <Card />
         </Layout>
     )
 }

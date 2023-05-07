@@ -7,7 +7,7 @@ const Navbar = () => {
     const activeStyle = 'underline underline-offset-2 text-blue-950'
 
     return (
-        <nav className='bg-transparent sticky flex flex-col sm:flex-row justify-between p-1 w-full z-10 px-8 py-5 font-light top-0'>
+        <nav className='bg-white/80 sticky flex flex-col sm:flex-row justify-between p-1 w-full z-10 px-8 py-5 font-light top-0 border-b-2'>
             <div className="flex items-center justify-between w-full lg:w-auto">
                 <ul className='flex flex-col lg:flex-row lg:items-center gap-3'>
                     <li>
