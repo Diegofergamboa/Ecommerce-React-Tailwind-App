@@ -1,37 +1,40 @@
 import Layout from '../../Components/Layout'
-<<<<<<< HEAD
 import Card from '../../Components/Card/index'
-import { useQuery } from '@apollo/client';
-import GET_PRODUCTS from '../../Graphql/queries/getProducts.js';
-import client from '../../Graphql/client';
-=======
->>>>>>> parent of 243be4e (Card component created)
+import { useState, useEffect } from "react";
+
 
 const Home = () => {
-    const { loading, error, data } = useQuery(GET_PRODUCTS, { client });
+    const [products, setProducts] = useState([]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error 404</p>;
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('https://api.escuelajs.co/api/v1/products');
+            const data = await response.json();
+            setProducts(data);
+            console.log(data)
+        }
+        fetchData();
+    }, []);
 
     return (
         <Layout>
-<<<<<<< HEAD
-            {data.products.map((product) => {
-                return (
-                    <Card
-                        key={product.id}
-                        name={product.title}
-                        description={product.description}
-                        price={product.price}
-                        image={product.image}
-                    />
-                )
-            })}
-=======
-            Hi World!
->>>>>>> parent of 243be4e (Card component created)
+            <section className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-8'>
+                {products.map(product => {
+                    return (
+                        <Card
+                            key={product.id}
+                            title={product.title}
+                            category={product.category.name}
+                            description={product.description}
+                            price={product.price}
+                            image={product.images[0]}
+                        />
+                    )
+                })}
+            </section>
+
         </Layout>
     )
 }
 
-export default Home;
+export default Home
