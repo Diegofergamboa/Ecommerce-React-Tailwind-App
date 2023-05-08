@@ -101,7 +101,7 @@ const Navbar = () => {
                             Electronics
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="flex gap-1">
                         <FaShoppingCart className="text-gray-800 text-2xl" /> {context.count}
                     </li>
                 </ul>
