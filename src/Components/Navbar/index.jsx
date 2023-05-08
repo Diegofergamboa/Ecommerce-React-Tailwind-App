@@ -2,8 +2,11 @@ import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index.es'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { FaShoppingCart } from 'react-icons/fa'
+import { useContext } from "react"
+import { ShoppingCartContext } from "../../Context"
 
 const Navbar = () => {
+    const context = useContext(ShoppingCartContext)
     const activeStyle = 'underline underline-offset-2 text-blue-950'
 
     return (
@@ -99,7 +102,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <FaShoppingCart className="text-gray-800 text-2xl" />
+                        <FaShoppingCart className="text-gray-800 text-2xl" /> {context.count}
                     </li>
                 </ul>
             </div>

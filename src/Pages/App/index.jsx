@@ -1,4 +1,5 @@
 import { useRoutes , BrowserRouter } from 'react-router-dom'
+import { ShoppingCartProvider } from '../../Context'
 import Home from '../Home/index'
 import MyAccount from '../MyAccount/index'
 import MyOrder from '../MyOrder/index'
@@ -22,10 +23,12 @@ const AppRouters = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-        <Navbar />
-        <AppRouters />
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+          <Navbar />
+          <AppRouters />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 
