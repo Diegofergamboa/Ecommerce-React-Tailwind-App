@@ -1,0 +1,11 @@
+.product-detail {
+    width: 30%;
+    height: calc(100vh - 68px);
+    top: 68px;
+}
+
+@media (max-width: 992px) {
+    .product-detail {
+        width: 100%;
+    }
+}

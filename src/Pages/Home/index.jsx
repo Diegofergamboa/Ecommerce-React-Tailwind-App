@@ -1,5 +1,6 @@
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card/index'
+import ProductDetail from '../../Components/ProductDetail/index'
 import { useState, useEffect } from "react";
 
 
@@ -31,7 +32,7 @@ const Home = () => {
                     )
                 })}
             </section>
-
+            <ProductDetail />
         </Layout>
     )
 }
