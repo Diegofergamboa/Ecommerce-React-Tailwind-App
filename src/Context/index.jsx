@@ -10,10 +10,10 @@ export const ShoppingCartProvider = ({ children }) => {
 
     {/* Setup for hidde or show aside product detail */}
     const [isProductDetailActive, setIsProductDetailActive] = useState(false);
+    const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
 
     {/* Setup for show information in the product detail */}
-    const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
-    const [productDetail, setProductDetail] = useState([])
+    const [productToShow, setProductToShow] = useState([])
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -22,8 +22,8 @@ export const ShoppingCartProvider = ({ children }) => {
             isProductDetailActive,
             setIsProductDetailActive,
             changeProductDetail,
-            productDetail,
-            setProductDetail,
+            productToShow,
+            setProductToShow,
         }}>
             {children}
         </ShoppingCartContext.Provider>

@@ -4,10 +4,15 @@ import { ShoppingCartContext } from '../../Context'
 
 const Card = (data) => {
     const context = useContext(ShoppingCartContext)
+    const showProductDetail = () => {
+        context.changeProductDetail()
+        context.setProductToShow(data)
+    }
 
+    
     return (
         <div className='bg-white cursor-pointer w-56 rounded-lg'
-            onClick={() => context.changeProductDetail()}
+            onClick={() => showProductDetail()} 
         >
             <figure className='relative mb-2 w-full '>
                 <span className='absolute top-0 left-0 p-1 rounded-3xl m-1 bg-white/60 text-black text-sm '>{data.category}!</span>
