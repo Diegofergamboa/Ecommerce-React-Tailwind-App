@@ -15,6 +15,9 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for show information in the product detail */}
     const [productToShow, setProductToShow] = useState([])
 
+    {/* Setup for show information in the product detail */}
+    const [cartProducts, setCartProducts] = useState([])
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
