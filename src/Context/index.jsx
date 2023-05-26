@@ -18,6 +18,10 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for count and show in the Product Cart every single product */}
     const [cartProducts, setCartProducts] = useState([])
 
+    {/* Setup for hidde or show aside checkout Side Menu */}
+    const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false);
+    const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
@@ -29,6 +33,8 @@ export const ShoppingCartProvider = ({ children }) => {
             setProductToShow,
             cartProducts,
             setCartProducts,
+            isCheckoutSideMenuActive,
+            changeCheckoutSideMenu
         }}>
             {children}
         </ShoppingCartContext.Provider>
