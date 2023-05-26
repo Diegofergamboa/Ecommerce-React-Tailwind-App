@@ -9,6 +9,11 @@ const Card = (data) => {
         context.setProductToShow(data)
     }
 
+    const addShoppingCart = () => {
+        context.setCount(context.count + 1)
+        context.setCartProducts(data.image)
+        console.log(context.cartProducts)
+    }
     
     return (
         <div className='bg-white cursor-pointer w-56 rounded-lg'
@@ -18,7 +23,7 @@ const Card = (data) => {
                 <span className='absolute top-0 left-0 p-1 rounded-3xl m-1 bg-white/60 text-black text-sm '>{data.category}!</span>
                 <img className="rounded-lg object-cover" src={data.image} alt='headphones'/>
                 <div className='absolute top-0 right-0 p-1 m-1 text-center align-middle flex justify-center items-center bg-white/80 w-6 h-6 rounded-full'
-                onClick={() => context.setCount(context.count + 1)}
+                onClick={() => addShoppingCart(data)}
                 >
                     +
                 </div>
@@ -46,4 +51,4 @@ Card.propTypes = {
     title: PropTypes.string.isRequired
 };
 
-export default Card
+export default Card;
