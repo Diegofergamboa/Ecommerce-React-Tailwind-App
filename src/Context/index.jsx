@@ -15,7 +15,7 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for show information in the product detail */}
     const [productToShow, setProductToShow] = useState([])
 
-    {/* Setup for show information in the product detail */}
+    {/* Setup for count and show in the Product Cart every single product */}
     const [cartProducts, setCartProducts] = useState([])
 
     return (
@@ -27,6 +27,8 @@ export const ShoppingCartProvider = ({ children }) => {
             changeProductDetail,
             productToShow,
             setProductToShow,
+            cartProducts,
+            setCartProducts,
         }}>
             {children}
         </ShoppingCartContext.Provider>
