@@ -4,15 +4,18 @@ import { ShoppingCartContext } from '../../Context'
 
 const Card = (data) => {
     const context = useContext(ShoppingCartContext)
+
     const showProductDetail = () => {
         context.changeProductDetail()
         context.setProductToShow(data)
     }
 
-    const addShoppingCart = () => {
+    const addShoppingCart = (event, productData) => {
+        event.stopPropagation()
         context.setCount(context.count + 1)
-        context.setCartProducts(data.image)
-        console.log(context.cartProducts)
+        context.setCartProducts([...context.cartProducts, productData])
+        context.changeCheckoutSideMenu()
+        console.log('Cart', context.cartProducts)
     }
     
     return (
@@ -23,7 +26,7 @@ const Card = (data) => {
                 <span className='absolute top-0 left-0 p-1 rounded-3xl m-1 bg-white/60 text-black text-sm '>{data.category}!</span>
                 <img className="rounded-lg object-cover" src={data.image} alt='headphones'/>
                 <div className='absolute top-0 right-0 p-1 m-1 text-center align-middle flex justify-center items-center bg-white/80 w-6 h-6 rounded-full'
-                onClick={() => addShoppingCart(data)}
+                onClick={(event) => addShoppingCart(event, data)}
                 >
                     +
                 </div>

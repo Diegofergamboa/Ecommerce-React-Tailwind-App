@@ -11,6 +11,10 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for hidde or show aside product detail */}
     const [isProductDetailActive, setIsProductDetailActive] = useState(false);
     const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
+    
+    {/* Setup for hidde or show aside checkout Side Menu */}
+    const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false);
+    const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
 
     {/* Setup for show information in the product detail */}
     const [productToShow, setProductToShow] = useState([])
@@ -18,9 +22,6 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for count and show in the Product Cart every single product */}
     const [cartProducts, setCartProducts] = useState([])
 
-    {/* Setup for hidde or show aside checkout Side Menu */}
-    const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false);
-    const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -34,7 +35,7 @@ export const ShoppingCartProvider = ({ children }) => {
             cartProducts,
             setCartProducts,
             isCheckoutSideMenuActive,
-            changeCheckoutSideMenu
+            changeCheckoutSideMenu,
         }}>
             {children}
         </ShoppingCartContext.Provider>

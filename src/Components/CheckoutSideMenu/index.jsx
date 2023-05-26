@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context'
 
 const CheckoutSideMenu = () => {
-    const { setCartProducts , isCheckoutSideMenuActive , changeCheckoutSideMenu } = useContext(ShoppingCartContext)
+    const { isCheckoutSideMenuActive , changeCheckoutSideMenu } = useContext(ShoppingCartContext)
 
     return (
         <aside className={`${isCheckoutSideMenuActive ? 'flex ' : 'hidden '} checkout-side-menu rounded-lg flex flex-col fixed right-0 border bg-white border-black`}>
