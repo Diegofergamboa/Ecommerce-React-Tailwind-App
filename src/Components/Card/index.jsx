@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { ShoppingCartContext } from '../../Context'
+import { ShoppingCartContext } from '../../Context';
+import { FaCheck } from 'react-icons/fa'
 
 const Card = (data) => {
     const context = useContext(ShoppingCartContext)

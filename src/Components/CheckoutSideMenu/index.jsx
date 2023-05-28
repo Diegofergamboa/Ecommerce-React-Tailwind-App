@@ -13,6 +13,7 @@ const CheckoutSideMenu = () => {
                 <FaWindowClose onClick={() => changeCheckoutSideMenu()} />
                 <h2 className='font-medium text-xl'>My Order</h2>
             </div>
+            <div className='px-6 overflow-y-scroll'>
             {
                 cartProducts.map(product => (
                     <OrderCard
@@ -23,6 +24,7 @@ const CheckoutSideMenu = () => {
                     />
                 ))
             }
+            </div>
         </aside>
     )
 }
