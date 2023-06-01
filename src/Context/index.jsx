@@ -9,11 +9,11 @@ export const ShoppingCartProvider = ({ children }) => {
     const [count, setCount] = useState(0);
 
     {/* Setup for hidde or show aside product detail */}
-    const [isProductDetailActive, setIsProductDetailActive] = useState(false);
+    const [isProductDetailActive, setIsProductDetailActive] = useState(false)
     const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
     
     {/* Setup for hidde or show aside checkout Side Menu */}
-    const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false);
+    const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false)
     const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
 
     {/* Setup for show information in the product detail */}

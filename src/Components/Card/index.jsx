@@ -67,7 +67,7 @@ Card.defaultProps = {
 }
 
 Card.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     image: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

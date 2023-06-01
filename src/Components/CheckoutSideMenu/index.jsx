@@ -2,7 +2,7 @@ import './styles.css'
 import { FaWindowClose } from 'react-icons/fa'
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context'
-import OrderCard from '../../Components/OrderCard'
+import { OrderCard } from '../OrderCard/'
 
 const CheckoutSideMenu = () => {
     const { cartProducts, isCheckoutSideMenuActive,changeCheckoutSideMenu } = useContext(ShoppingCartContext)

@@ -25,5 +25,4 @@ OrderCard.propTypes = {
     price: PropTypes.number
 }
 
-
-export default OrderCard;
+export { OrderCard }
