@@ -15,9 +15,9 @@ const CheckoutSideMenu = () => {
             </div>
             <div className='px-6 overflow-y-scroll'>
             {
-                cartProducts.map(product => (
+                cartProducts.map((product) => (
                     <OrderCard
-                        key={product.Id}
+                        key={product.image}
                         title={product.title}
                         imageUrl={product.image}
                         price={product.price}
