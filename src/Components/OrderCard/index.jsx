@@ -1,4 +1,5 @@
 import { FaWindowClose } from 'react-icons/fa';
+import PropTypes from 'prop-types'; 
 
 const OrderCard = props => {
     const { title, imageUrl, price } = props;
@@ -17,5 +18,12 @@ const OrderCard = props => {
         </div>
     );
 }
+
+OrderCard.propTypes = {
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    price: PropTypes.number
+}
+
 
 export default OrderCard;
