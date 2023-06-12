@@ -3,9 +3,11 @@ import { FaWindowClose } from 'react-icons/fa'
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context'
 import { OrderCard } from '../OrderCard/'
+import { totalPrice } from '../../utils'
 
 const CheckoutSideMenu = () => {
     const { cartProducts, setCartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu } = useContext(ShoppingCartContext)
+
     const handleDelete = (id) => {
         const filteredProducts = cartProducts.filter(product => product.id != id)
         return setCartProducts(filteredProducts)
@@ -30,6 +32,12 @@ const CheckoutSideMenu = () => {
                     />
                 ))
             }
+            </div>
+            <div className='px-6'>
+                <p>
+                    <span>Total: </span>
+                    <span>${totalPrice(cartProducts)}</span>
+                </p>
             </div>
         </aside>
     )
