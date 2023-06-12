@@ -6,11 +6,23 @@ import { OrderCard } from '../OrderCard/'
 import { totalPrice } from '../../utils'
 
 const CheckoutSideMenu = () => {
-    const { cartProducts, setCartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu } = useContext(ShoppingCartContext)
+    const { cartProducts, setCartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu, order, setOrder } = useContext(ShoppingCartContext)
 
     const handleDelete = (id) => {
         const filteredProducts = cartProducts.filter(product => product.id != id)
         return setCartProducts(filteredProducts)
+    }
+
+    const handleCheckout = () => {
+        const orderToAdd = {
+            date: '01.02.23',
+            products: cartProducts,
+            totalProducts: cartProducts.length,
+            totalPrice: totalPrice(cartProducts)
+        }
+
+        setOrder([...order, orderToAdd])
+        setCartProducts([])
     }
 
     return (
@@ -19,7 +31,7 @@ const CheckoutSideMenu = () => {
                 <FaWindowClose onClick={() => changeCheckoutSideMenu()} />
                 <h2 className='font-medium text-xl'>My Order</h2>
             </div>
-            <div className='px-6 overflow-y-scroll'>
+            <div className='px-6 overflow-y-scroll flex-1'>
             {
                 cartProducts.map(product => (
                     <OrderCard
@@ -38,6 +50,7 @@ const CheckoutSideMenu = () => {
                     <span>Total: </span>
                     <span>${totalPrice(cartProducts)}</span>
                 </p>
+                <button className='bg-slate-500  text-fuchsia-50 py-3 px-5 rounded-lg mt-3 text-base' onClick={() => handleCheckout()}>Checkout</button>
             </div>
         </aside>
     )

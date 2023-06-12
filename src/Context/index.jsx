@@ -25,6 +25,9 @@ export const ShoppingCartProvider = ({ children }) => {
     {/* Setup for count and show in the Product Cart every single product */}
     const [cartProductsDelete, setCartProductsDelete] = useState([])
 
+    {/* Shopping CART * Order */}
+    const [order, setOrder] = useState([])
+
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -40,7 +43,9 @@ export const ShoppingCartProvider = ({ children }) => {
             isCheckoutSideMenuActive,
             changeCheckoutSideMenu,
             cartProductsDelete,
-            setCartProductsDelete
+            setCartProductsDelete,
+            order,
+            setOrder
         }}>
             {children}
         </ShoppingCartContext.Provider>
