@@ -7,7 +7,7 @@ const OrderCard = props => {
 
     return (
         <div className="orderCard flex flex-col justify-between gap-1 rounded-sm p-2 border-b border-blue-950/20 items-center mb-3 w-full">
-            <FaWindowClose onClick={() => handleDelete(id)} className="h-6 text-black cursor-pointer self-end" />
+            <FaWindowClose onClick={() => handleDelete(id, event)} className="h-6 text-black cursor-pointer self-end" />
             <div className="flex items-center gap-2">
                 <figure className="w-1/2">
                     <img className='w-full h-full rounded-lg object-cover' alt={title} src={imageUrl} />
@@ -22,11 +22,11 @@ const OrderCard = props => {
 }
 
 OrderCard.propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.number,
     title: PropTypes.string,
     imageUrl: PropTypes.string,
     price: PropTypes.number,
-    handleDelete: PropTypes.element
+    handleDelete: PropTypes.function
 }
 
 export { OrderCard }

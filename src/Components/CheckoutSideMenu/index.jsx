@@ -5,14 +5,11 @@ import { ShoppingCartContext } from '../../Context'
 import { OrderCard } from '../OrderCard/'
 
 const CheckoutSideMenu = () => {
-    const { cartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu, context } = useContext(ShoppingCartContext)
-    const handleDelete = (id) => {
+    const { cartProducts, setCartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu } = useContext(ShoppingCartContext)
+    const handleDelete = (id, event) => {
+        event.stopPropagation()
         const filteredProducts = cartProducts.filter(product => product.id != id)
-        console.log('filtered Products', filteredProducts)
-        console.log('Id of the product filtered', id)
-        console.log('###########################')
-        console.log('cart Products', cartProducts)
-        return context.setCartProducts(filteredProducts)
+        return setCartProducts(filteredProducts)
     }
 
     return (
@@ -23,9 +20,9 @@ const CheckoutSideMenu = () => {
             </div>
             <div className='px-6 overflow-y-scroll'>
             {
-                cartProducts.map((product, index) => (
+                cartProducts.map(product => (
                     <OrderCard
-                        key={`${product.id}${index}`}
+                        key={product.id}
                         id={product.id}
                         title={product.title}
                         imageUrl={product.image}
