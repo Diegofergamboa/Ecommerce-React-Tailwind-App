@@ -5,7 +5,15 @@ import { ShoppingCartContext } from '../../Context'
 import { OrderCard } from '../OrderCard/'
 
 const CheckoutSideMenu = () => {
-    const { cartProducts, isCheckoutSideMenuActive,changeCheckoutSideMenu } = useContext(ShoppingCartContext)
+    const { cartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu, context } = useContext(ShoppingCartContext)
+    const handleDelete = (id) => {
+        const filteredProducts = cartProducts.filter(product => product.id != id)
+        console.log('filtered Products', filteredProducts)
+        console.log('Id of the product filtered', id)
+        console.log('###########################')
+        console.log('cart Products', cartProducts)
+        return context.setCartProducts(filteredProducts)
+    }
 
     return (
         <aside className={`${isCheckoutSideMenuActive ? 'flex ' : 'hidden '} checkout-side-menu rounded-lg flex flex-col fixed right-0 border bg-white border-black`}>
@@ -15,12 +23,14 @@ const CheckoutSideMenu = () => {
             </div>
             <div className='px-6 overflow-y-scroll'>
             {
-                cartProducts.map((product) => (
+                cartProducts.map((product, index) => (
                     <OrderCard
-                        key={product.image}
+                        key={`${product.id}${index}`}
+                        id={product.id}
                         title={product.title}
                         imageUrl={product.image}
                         price={product.price}
+                        handleDelete={handleDelete}
                     />
                 ))
             }

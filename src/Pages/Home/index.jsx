@@ -9,8 +9,9 @@ const Home = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('https://api.escuelajs.co/api/v1/products');
+            const response = await fetch('https://fakestoreapi.com/products');
             const data = await response.json();
+            console.table(data[0])
             setProducts(data);
         }
         fetchData();
@@ -23,11 +24,12 @@ const Home = () => {
                     return (
                         <Card
                             key={product.id}
+                            id={product.id}
                             title={product.title}
-                            category={product.category.name}
-                            description={product.description}
                             price={product.price}
-                            image={product.images[0]}
+                            description={product.description}
+                            category={product.category.name}
+                            image={product.image}
                         />
                     )
                 })}
