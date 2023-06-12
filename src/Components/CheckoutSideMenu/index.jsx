@@ -6,8 +6,7 @@ import { OrderCard } from '../OrderCard/'
 
 const CheckoutSideMenu = () => {
     const { cartProducts, setCartProducts, isCheckoutSideMenuActive, changeCheckoutSideMenu } = useContext(ShoppingCartContext)
-    const handleDelete = (id, event) => {
-        event.stopPropagation()
+    const handleDelete = (id) => {
         const filteredProducts = cartProducts.filter(product => product.id != id)
         return setCartProducts(filteredProducts)
     }
