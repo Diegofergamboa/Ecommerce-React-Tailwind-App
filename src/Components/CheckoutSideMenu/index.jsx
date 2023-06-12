@@ -1,4 +1,5 @@
 import './styles.css'
+import { Link } from 'react-router-dom';
 import { FaWindowClose } from 'react-icons/fa'
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context'
@@ -31,7 +32,7 @@ const CheckoutSideMenu = () => {
                 <FaWindowClose onClick={() => changeCheckoutSideMenu()} />
                 <h2 className='font-medium text-xl'>My Order</h2>
             </div>
-            <div className='px-6 overflow-y-scroll flex-1'>
+            <div className='px-6'>
             {
                 cartProducts.map(product => (
                     <OrderCard
@@ -50,7 +51,9 @@ const CheckoutSideMenu = () => {
                     <span>Total: </span>
                     <span>${totalPrice(cartProducts)}</span>
                 </p>
+                <Link to='/my-orders/last'>
                 <button className='bg-slate-500  text-fuchsia-50 py-3 px-5 rounded-lg mt-3 text-base' onClick={() => handleCheckout()}>Checkout</button>
+                </Link>
             </div>
         </aside>
     )

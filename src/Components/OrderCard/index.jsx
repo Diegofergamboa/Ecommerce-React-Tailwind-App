@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 const OrderCard = props => {
 
     const { id, title, imageUrl, price, handleDelete } = props
+    
+    let renderXMarkIcon
+    if (handleDelete) {
+        renderXMarkIcon = <FaWindowClose onClick={() => handleDelete(id)} className="h-6 text-black cursor-pointer self-end" />
+    }
 
     return (
         <div className="orderCard flex flex-col justify-between gap-1 rounded-sm p-2 border-b border-blue-950/20 items-center mb-3 w-full">
-            <FaWindowClose onClick={() => handleDelete(id)} className="h-6 text-black cursor-pointer self-end" />
+            {renderXMarkIcon}
             <div className="flex items-center gap-2">
                 <figure className="w-1/2">
                     <img className='w-full h-full rounded-lg object-cover' alt={title} src={imageUrl} />
