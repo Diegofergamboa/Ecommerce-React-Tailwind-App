@@ -1,29 +1,22 @@
 import { FaWindowClose } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-//import { useContext } from 'react';
-//import { ShoppingCartContext } from '../../Context'
-
-
-
 
 const OrderCard = props => {
-    //const context = useContext(ShoppingCartContext)
-    
+
     const { id, title, imageUrl, price, handleDelete } = props
 
     return (
-        <div className="flex justify-between items-center mb-3 w-full">
+        <div className="orderCard flex flex-col justify-between gap-1 rounded-sm p-2 border-b border-blue-950/20 items-center mb-3 w-full">
+            <FaWindowClose onClick={() => handleDelete(id)} className="h-6 text-black cursor-pointer self-end" />
             <div className="flex items-center gap-2">
-                <figure className="w-20 h-15">
+                <figure className="w-1/2">
                     <img className='w-full h-full rounded-lg object-cover' alt={title} src={imageUrl} />
                 </figure>
-                <p className="text-sm font-light">{title}</p>
+                <p className="w-1/2 text-sm font-light">{title}</p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex self-start gap-2">
                 <p className="text-lg font-medium">${price}</p>
-                <p>{id}</p>
             </div>
-            <FaWindowClose onClick={() => handleDelete(id)} className="h-6 text-black cursor-pointer" />
         </div>
     );
 }

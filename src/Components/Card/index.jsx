@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context';
 import { FaCheck } from 'react-icons/fa'
 import { FaPlusCircle } from 'react-icons/fa'
+import './styles.css'
 
 const Card = (data) => {
     const context = useContext(ShoppingCartContext)
@@ -43,7 +44,7 @@ const Card = (data) => {
 
 
     return (
-        <div className='bg-white cursor-pointer w-56 rounded-lg'
+        <div className='bg-white cursor-pointer w-56 rounded-lg card flex flex-col justify-between shadow-lg p-3'
             onClick={() => showProductDetail()}
         >
             <figure className='relative mb-2 w-full '>
@@ -52,7 +53,7 @@ const Card = (data) => {
                 {renderIcon(data.image)}
             </figure>
             <p className='flex justify-between'>
-                <span className='text-sm font-bold'>{data.title}</span>
+                <span className='text-sm font-bold'>{data.title.slice(0, 20)}</span>
                 <span>${data.price}</span>
             </p>
         </div>

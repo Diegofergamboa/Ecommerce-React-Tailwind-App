@@ -1,0 +1,11 @@
+.card figure img {
+    max-height: 200px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.card figure {
+    flex-grow: 1;
+    align-items: center;
+    display: flex;
+}
