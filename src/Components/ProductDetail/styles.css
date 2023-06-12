@@ -9,3 +9,8 @@
         width: 100%;
     }
 }
+
+.product-detail__image {
+    max-height: 320px;
+    object-fit: contain;
+}
