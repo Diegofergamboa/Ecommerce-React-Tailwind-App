@@ -1,22 +1,26 @@
-import { createContext } from 'react';
-import { useState } from 'react';
-import { PropTypes } from 'prop-types';
+import { createContext } from 'react'
+import PropTypes from 'prop-types'
+import { useState, useEffect } from "react"
 
 export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
+
+    {/* Get products */}
+    const [products, setProducts] = useState(null);
+    
     {/* Setup for shopping cart counter */}
     const [count, setCount] = useState(0);
 
-    {/* Setup for hidde or show aside product detail */}
+    {/* Setup for hide or show aside product detail */}
     const [isProductDetailActive, setIsProductDetailActive] = useState(false)
     const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
     
-    {/* Setup for hidde or show aside checkout Side Menu */}
+    {/* Setup for hide or show aside checkout Side Menu */}
     const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false)
     const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
 
-    {/* Setup for show information in the product detail */}
+    {/* Setup for showing information in the product detail */}
     const [productToShow, setProductToShow] = useState([])
 
     {/* Setup for count and show in the Product Cart every single product */}
@@ -29,8 +33,19 @@ export const ShoppingCartProvider = ({ children }) => {
     const [order, setOrder] = useState([])
 
 
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('https://api.escuelajs.co/api/v1/products');
+            const data = await response.json();
+            setProducts(data);
+        }
+        fetchData();
+    }, []);
+
     return (
         <ShoppingCartContext.Provider value={{
+            products,
+            setProducts,
             count,
             setCount,
             isProductDetailActive,
@@ -53,6 +68,5 @@ export const ShoppingCartProvider = ({ children }) => {
 }
 
 ShoppingCartProvider.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 };
-
