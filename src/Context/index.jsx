@@ -5,33 +5,18 @@ import { useState, useEffect } from "react"
 export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
-
-    {/* Get products */}
     const [products, setProducts] = useState(null);
-    
-    {/* Setup for shopping cart counter */}
     const [count, setCount] = useState(0);
-
-    {/* Setup for hide or show aside product detail */}
     const [isProductDetailActive, setIsProductDetailActive] = useState(false)
     const changeProductDetail = () => setIsProductDetailActive(!isProductDetailActive)
-    
-    {/* Setup for hide or show aside checkout Side Menu */}
     const [isCheckoutSideMenuActive, setIsCheckoutSideMenuActive] = useState(false)
     const changeCheckoutSideMenu = () => setIsCheckoutSideMenuActive(!isCheckoutSideMenuActive)
-
-    {/* Setup for showing information in the product detail */}
     const [productToShow, setProductToShow] = useState([])
-
-    {/* Setup for count and show in the Product Cart every single product */}
     const [cartProducts, setCartProducts] = useState([])
-
-    {/* Setup for count and show in the Product Cart every single product */}
     const [cartProductsDelete, setCartProductsDelete] = useState([])
-
-    {/* Shopping CART * Order */}
     const [order, setOrder] = useState([])
-
+    const [searchByTitle, setSearchByTitle] = useState('')
+    const [filteredItems, setFilteredItems] = useState([])
 
     useEffect(() => {
         async function fetchData() {
@@ -41,6 +26,14 @@ export const ShoppingCartProvider = ({ children }) => {
         }
         fetchData();
     }, []);
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+    }
+
+    useEffect(() => {
+        if (searchByTitle) setFilteredItems(filteredItemsByTitle(products, searchByTitle));
+    }, [products, searchByTitle]);
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -60,7 +53,10 @@ export const ShoppingCartProvider = ({ children }) => {
             cartProductsDelete,
             setCartProductsDelete,
             order,
-            setOrder
+            setOrder,
+            searchByTitle,
+            setSearchByTitle,
+            filteredItems
         }}>
             {children}
         </ShoppingCartContext.Provider>

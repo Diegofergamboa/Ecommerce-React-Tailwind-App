@@ -17,7 +17,7 @@ function MyOrder() {
                 <Link to={`/my-orders`} className='absolute left-0'>
                     <FaArrowAltCircleLeft />
                 </Link>
-                <h1>My Order</h1>
+                <h1 className='font-medium text-xl mb-3'>My Order</h1>
             </div>
             <div className='px-6'>
                 {
