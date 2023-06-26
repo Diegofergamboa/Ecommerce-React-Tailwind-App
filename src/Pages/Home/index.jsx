@@ -12,7 +12,7 @@ const Home = () => {
     }
 
     const renderView = () => {
-        if (context.searchByTitle && context.filteredItems && context.filteredItems.length > 0) {
+        if (context.filteredItems?.length > 0) {
             return (
                 <>
                     {context.filteredItems.map(product => (
@@ -31,17 +31,7 @@ const Home = () => {
         } else {
             return (
                 <>
-                    {context.products.map(product => (
-                        <Card
-                            key={product.id}
-                            id={product.id}
-                            title={product.title}
-                            price={product.price}
-                            description={product.description}
-                            category={product.category.name}
-                            image={product.images[0]}
-                        />
-                    ))}
+                    <h2 className='w-full text-center text-xl'>No products match the search criteria</h2>
                 </>
             )
         }
@@ -50,7 +40,7 @@ const Home = () => {
     return (
         <Layout>
             <div className='flex justify-center items-center w-80 relative mb-5'>
-                <h1 className='font-medium text-xl mb-3'>products</h1>
+                <h1 className='font-medium text-xl mb-3'>Products</h1>
             </div>
             <input 
                 placeholder='Search your products' 
