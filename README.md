@@ -1,7 +1,5 @@
 # Awesome Tailwind-Vite-React App 🚀
 
-![App Screenshot](https://example.com/app_screenshot.png)
-
 Welcome to the Awesome Tailwind-Vite-React App repository! This project is built using Tailwind CSS, Vite, and React, creating a powerful web application with blazing-fast performance and delightful UI/UX.
 
 ## Live Demo 🌐
