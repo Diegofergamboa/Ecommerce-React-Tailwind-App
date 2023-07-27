@@ -1,6 +1,6 @@
 # Awesome Tailwind-Vite-React App 🚀
 
-Welcome to the Awesome Tailwind-Vite-React App repository! This project is built using Tailwind CSS, Vite, and React, creating a powerful web application with blazing-fast performance and delightful UI/UX.
+Welcome to the Awesome Tailwind-Vite-React App repository! This project is an eCommerce web application built using Tailwind CSS, Vite, and React, creating a powerful web application with blazing-fast performance and delightful UI/UX. It utilizes the Platzi API to fetch data for the eCommerce features.
 
 ## Live Demo 🌐
 
@@ -19,7 +19,8 @@ This project is licensed under the MIT License.
 
 ## Contributors ✨
 
-@diegofergamboa
-Diego Fernando Ortiz Gamboa
-Connect with me on LinkedIn:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/diegofergamboa)
+- @diegofergamboa
+- Diego Fernando Ortiz Gamboa
+
+Connect with me on LinkedIn: :fire:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&
